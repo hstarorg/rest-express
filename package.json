@@ -1,0 +1,33 @@
+{
+  "name": "rest-express",
+  "version": "1.0.0",
+  "description": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hstarorg/rest-express.git"
+  },
+  "keywords": [
+    "Express",
+    "REST"
+  ],
+  "author": "Jay.M.Hu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hstarorg/rest-express/issues"
+  },
+  "homepage": "https://github.com/hstarorg/rest-express#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect-timeout": "^1.7.0",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "response-time": "^2.3.1"
+  }
+}
