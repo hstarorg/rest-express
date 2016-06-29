@@ -8,7 +8,7 @@ let options = {
   enableResponseTime: true,
   responseTimeOptions: {
     digits: 4, //default 3
-    header: 'use-time',
+    // header: 'use-time',
     suffix: false
   },
   enableLog: true,
