@@ -107,7 +107,7 @@ let onRoutesLoaded = (options) => {
 
 let runServer = (options) => {
   let server;
-  if (options.useHttps === true) {
+  if (options.enableHttps === true) {
     let httpsOptions = options.httpsOptions || {
       key: fs.readFileSync(path.join(__dirname, 'keys', 'key.pem')),
       cert: fs.readFileSync(path.join(__dirname, 'keys', 'cert.pem'))

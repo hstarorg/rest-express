@@ -24,6 +24,10 @@ let options = {
   jsonParserOptions: {},
   enableGzip: true,
   gzipOptions: {},
+  enableHttps: false,
+  httpsOptions: {
+
+  },
   onRoutesLoading: (app) => {
     console.log('before load routes');
   },

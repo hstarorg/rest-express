@@ -40,6 +40,11 @@ let options = {
   jsonParserOptions: {}, //转换json参数配置，请参考：https://github.com/expressjs/body-parser
   enableGzip: true, //是否启用Gzip支持
   gzipOptions: {}, //gzip配置，请参考：https://github.com/expressjs/compression
+  enableHttps: false, //是否启用Https
+  httpsOptions: { //Https配置项，提供{key: '', cert: ''}
+    key: '',
+    cert: ''
+  },
   onRoutesLoading: (app) => { //加载路由之前要执行的操作，参数app = express();
     console.log('before load routes');
   },
