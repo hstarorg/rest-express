@@ -3,7 +3,7 @@ A rest api framework based on express.
 
 # How to use?
 
-``$ npm install rest-express -save``
+``$ npm install rest-express --save``
 
 ```javascript
 let restExpress = require('rest-express');
