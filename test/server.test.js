@@ -1,5 +1,6 @@
 'use strict';
 
+let path = require('path');
 let restExpress = require('./../index');
 
 let options = {
@@ -22,7 +23,15 @@ let options = {
   urlParserOptions: {},
   jsonParserOptions: {},
   enableGzip: true,
-  gzipOptions: {}
+  gzipOptions: {},
+  onRoutesLoading: (app) => {
+    console.log('before load routes');
+  },
+  onRoutesLoaded: (app) => {
+    console.log('after load routes');
+  },
+  routesPath: path.join(__dirname, 'routes'),
+  apiPrefix: '/'
 };
 
 restExpress.startServer(options)

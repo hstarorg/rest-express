@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hstarorg/rest-express#readme",
   "dependencies": {
+    "api-error-handler": "^1.0.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "connect-timeout": "^1.7.0",
