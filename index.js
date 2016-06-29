@@ -136,6 +136,11 @@ let startServer = (options, done) => {
   return runServer(options);
 };
 
+// 捕获未处理的异常
+process.on('uncaughtException', function (err) {
+  console.error(err);
+});
+
 module.exports = {
   startServer: startServer
 };
