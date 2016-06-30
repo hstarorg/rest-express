@@ -8,12 +8,11 @@ A rest api framework based on express.
 ```javascript
 let restExpress = require('rest-express');
 restExpress.startServer(options)
-  .then((err, server) => {
-    if(err){
-      return console.error(err);
-    }
+  .then((server) => {
     let address = server.address();
     console.log('Server started', address);
+  }, (err) => {
+    console.error(err);
   });
 ```
 # About Options
