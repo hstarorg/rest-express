@@ -1,6 +1,13 @@
 # rest-express
 A rest api framework based on express.
 
+[![NPM Version](https://img.shields.io/npm/v/rest-express.svg?style=flat)](https://www.npmjs.org/package/rest-express)
+[![npm](https://img.shields.io/npm/dm/rest-express.svg?style=flat)](https://www.npmjs.org/package/rest-express)
+[![Build Status](https://travis-ci.org/hstarorg/rest-express.svg?branch=master)](https://travis-ci.org/hstarorg/rest-express)
+[![Coverage Status](https://coveralls.io/repos/hstarorg/rest-express/badge.svg?branch=master)](https://coveralls.io/r/hstarorg/rest-express?branch=master)
+[![Dependency Status](https://david-dm.org/hstarorg/rest-express.svg?style=flat)](https://david-dm.org/hstarorg/rest-express)
+[![License](http://img.shields.io/npm/l/rest-express.svg?style=flat)](https://raw.githubusercontent.com/hstarorg/rest-express/master/LICENSE)
+
 # How to use?
 
 ``$ npm install rest-express --save``
