@@ -142,5 +142,6 @@ process.on('uncaughtException', function (err) {
 });
 
 module.exports = {
+  MSSQL: require('./lib/dbProviders/MSSQL'),
   startServer: startServer
 };
