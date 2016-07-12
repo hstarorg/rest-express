@@ -1,17 +1,6 @@
 'use strict';
 
-let config = {
-  user: 'acctdbo',
-  password: '4Acct2Dev',
-  server: '10.1.25.28',
-  port: 41433,
-  database: 'APIPortal',
-  pool: {
-    max: 50,
-    min: 0,
-    idleTimeoutMillis: 30 * 1000
-  }
-};
+let config = require('./../config').dbConfig;
 
 let MSSQL = require('./../../index').MSSQL;
 
@@ -28,11 +17,38 @@ let dbtest1 = (req, res, next) => {
   db.executeScalar('select abc = count(0) from JayTestTable1')
     .then((data) => {
       res.json(data);
+      db.close
     })
     .catch(console.error);
 };
 
+let dbtest2 = (req, res, next) => {
+  db.executeProcedure('up_GetPersonalApiList', { UserId: 'jh3r' })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch(console.error);
+};
+
+
+// let dbtest3 = (req, res, next) => {
+//   let tran = db.newTransaction();
+//   tran.begin((err) => {
+//     db.executeProcedure('up_GetPersonalApiList', { UserId: 'jh3r' }, tran)
+//       .then((data) => {
+//         res.json(data);
+//       })
+//       .catch(console.error);
+//     db.executeNonQuery('update xxx')
+//     tran.com
+//   });
+// };
+
+db.useTransaction((tran) => db.executeProcedure('up_GetPersonalApiList', { UserId: 'jh3r' }, tran))
+
+
 module.exports = {
   test: test,
-  dbtest1: dbtest1
+  dbtest1: dbtest1,
+  dbtest2: dbtest2
 };
