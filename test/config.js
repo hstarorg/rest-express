@@ -1,10 +1,10 @@
 module.exports = {
   dbConfig: config = {
-    user: 'xxx',
-    password: 'xxx',
-    server: '127.0.0.1',
-    port: 1433,
-    database: 'xxx',
+    user: 'acctdbo',
+    password: '4Acct2Dev',
+    server: '10.1.25.28',
+    port: 41433,
+    database: 'APIPortal',
     pool: {
       max: 50,
       min: 0,

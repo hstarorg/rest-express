@@ -81,3 +81,43 @@ module.exports = {
   prefix: '/test/abc' // 可选参数，默认/，router前缀，会拼接在options.apiPrefix之后。
 };
 ```
+
+# How to use MSSQL?
+
+```javascript
+let MSSQL = require('rest-express').MSSQL;
+
+let config = {
+  user: 'xxx', // UserName
+  password: 'xxxx', // Password
+  server: '127.0.0.1', // Server Name(IP)
+  port: 1433, // Data Server Port 
+  database: 'XXX', // Data base name
+  pool: { //线程池
+    max: 50, // 最大线程数
+    min: 0, // 最小线程数
+    idleTimeoutMillis: 30 * 1000 // 超时时间
+  }
+};
+let db = new MSSQL(config);
+
+db.executeNonQuery('update JayTestTable1 set password = @pwd', {pwd: '中文'})
+  .then((count) => {
+    console.log(count); //受影响的行数
+  });
+db.executeScalar('select top 1 * from JayTestTable1 where id = 15')
+  .then((data) => {
+    console.log(data); //查询结果的第一行数据（建议查询语句只会有第一行数据）
+    //如果查询结果是一个简单数据，如查询count，那么data则直接是这个count值，不在是一个对象。
+  });
+db.executeQuery('select * from JayTestTable1')
+  .then((rows) => {
+    console.log(rows); //数据集
+  });
+db.executeProcedure('up_GetPersonalApiList', {userName: 'abc'}, {}) //存储过程名称、输入参数、输出参数
+  .then((result) => {
+    console.log(result.result); //执行结果
+    console.log(result.affectedRowCount); //受影响的行数
+    console.log(result.resultOutput); // 输出参数
+  });
+```
