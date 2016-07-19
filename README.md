@@ -1,4 +1,4 @@
-# rest-express
+# rest-express [![Google Analytics](https://ga-beacon.appspot.com/UA-80998210-1/index)](https://github.com/hstarorg/rest-express)
 A rest api framework based on express.
 
 [![NPM Version](https://img.shields.io/npm/v/rest-express.svg?style=flat)](https://www.npmjs.org/package/rest-express)
