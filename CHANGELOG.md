@@ -1,9 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v1.1.1(2016.09.25)
+
+- 解除对 ``mssql`` 的强依赖，只有需要使用MSSQL操作SQL Server的时候，才需要主动去安装 ``mssql``
+
 ## v1.1.0(2016.7.19)
 
-- 封装MSSQL操作。
+- 封装MSSQL操作
 
 ## v1.0.1(2016.6.29)
 
