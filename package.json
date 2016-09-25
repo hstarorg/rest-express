@@ -4,7 +4,7 @@
   "description": "A rest api framework based on express.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "node ./test/server.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
     "url": "https://github.com/hstarorg/rest-express/issues"
   },
   "homepage": "https://github.com/hstarorg/rest-express#readme",
+  "peerDependencies": {
+    "mssql": "^3.3.0"
+  },
   "dependencies": {
     "api-error-handler": "^1.0.0",
     "body-parser": "^1.15.2",
@@ -28,7 +31,6 @@
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
-    "mssql": "^3.3.0",
     "multer": "^1.1.0",
     "response-time": "^2.3.1"
   }
