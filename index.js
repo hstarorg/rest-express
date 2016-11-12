@@ -11,7 +11,6 @@ let timeout = require('connect-timeout');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let responseTime = require('response-time');
-let multer = require('multer');
 let compression = require('compression');
 let errorHandler = require('api-error-handler');
 
