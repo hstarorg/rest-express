@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/hstarorg/rest-express#readme",
   "peerDependencies": {
-    "mssql": "^3.3.0"
+    "mssql": "^3.3.0",
+    "mysql": "^2.12.0"
   },
   "dependencies": {
     "api-error-handler": "^1.0.0",
