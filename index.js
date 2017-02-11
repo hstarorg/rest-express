@@ -1,24 +1,24 @@
 'use strict';
 
-let fs = require('fs');
-let path = require('path');
-let http = require('http');
-let https = require('https');
+const fs = require('fs');
+const path = require('path');
+const http = require('http');
+const https = require('https');
 
-let express = require('express');
-let cors = require('cors');
-let timeout = require('connect-timeout');
-let morgan = require('morgan');
-let bodyParser = require('body-parser');
-let responseTime = require('response-time');
-let compression = require('compression');
-let errorHandler = require('api-error-handler');
+const express = require('express');
+const cors = require('cors');
+const timeout = require('connect-timeout');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const responseTime = require('response-time');
+const compression = require('compression');
+const errorHandler = require('api-error-handler');
 
-let app = express();
+const app = express();
 
-let isFunction = (fn) => typeof fn === 'function';
+const isFunction = (fn) => typeof fn === 'function';
 
-let validOptions = (options) => {
+const validOptions = (options) => {
   if (!options) {
     throw 'Must provider options param.';
   }
@@ -31,7 +31,7 @@ let validOptions = (options) => {
   }
 };
 
-let loadMiddleware = (options) => {
+const loadMiddleware = (options) => {
   // Add response time support, show detail: https://github.com/expressjs/response-time
   if (options.enableResponseTime) {
     let responseTimeOpt = options.responseTimeOptions || {};
@@ -67,13 +67,13 @@ let loadMiddleware = (options) => {
   }
 };
 
-let onRoutesLoading = (options) => {
+const onRoutesLoading = (options) => {
   if (isFunction(options.onRoutesLoading)) {
     options.onRoutesLoading(app);
   }
 };
 
-let loadRoutes = (options) => {
+const loadRoutes = (options) => {
   let routeArr = [];
   //加载配置的路由目录下的JS文件。
   fs.readdirSync(options.routesPath)
@@ -97,14 +97,14 @@ let loadRoutes = (options) => {
   console.log(`Loaded ${routeCounter} routers.`);
 };
 
-let onRoutesLoaded = (options) => {
+const onRoutesLoaded = (options) => {
   if (isFunction(options.onRoutesLoaded)) {
     options.onRoutesLoaded(app);
   }
   app.use(errorHandler());
 };
 
-let runServer = (options) => {
+const runServer = (options) => {
   let server;
   if (options.enableHttps === true) {
     let httpsOptions = options.httpsOptions || {
@@ -125,8 +125,9 @@ let runServer = (options) => {
   });
 };
 
-let startServer = (options, done) => {
+const startServer = (options, done) => {
   global.Router = express.Router;
+  global.Validator = require('./lib/validator');
   validOptions(options);
   loadMiddleware(options);
   onRoutesLoading(options);

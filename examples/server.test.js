@@ -1,9 +1,9 @@
 'use strict';
 
-let path = require('path');
-let restExpress = require('./../index');
+const path = require('path');
+const restExpress = require('./../index');
 
-let options = {
+const options = {
   port: 3000,
   enableResponseTime: true,
   responseTimeOptions: {

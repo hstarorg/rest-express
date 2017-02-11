@@ -1,13 +1,17 @@
 'use strict';
 
-let config = require('./../config').dbConfig;
-
-let MSSQL = require('./../../index').MSSQL;
+const config = require('./../config').dbConfig;
+const MSSQL = require('./../../index').MSSQL;
+const schemaStore = require('./schemaStore');
 
 let db = new MSSQL(config);
 
-let test = (req, res) => {
-  res.json('abc, from biz.');
+let test = (req, res, next) => {
+  Validator.validate(req.body, schemaStore.TEST_SCHEMA)
+    .then(() => {
+      res.json('abc, from biz.');
+    })
+    .catch(next);
 };
 
 let dbtest1 = (req, res, next) => {
@@ -44,11 +48,11 @@ let dbtest2 = (req, res, next) => {
 //   });
 // };
 
-db.useTransaction((tran) => db.executeProcedure('up_GetPersonalApiList', { UserId: 'jh3r' }, tran))
+db.newTransaction((tran) => db.executeProcedure('up_GetPersonalApiList', { UserId: 'jh3r' }, tran))
 
 
 module.exports = {
-  test: test,
-  dbtest1: dbtest1,
-  dbtest2: dbtest2
+  test,
+  dbtest1,
+  dbtest2
 };

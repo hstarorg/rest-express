@@ -83,6 +83,20 @@ module.exports = {
 };
 ```
 
+# How to validate object?
+
+`rest-experss` 集成了 `Joi` 验证库，通过提供了一个全局的 `Validator` 对象，如果我们要验证，只需要如下调用：
+
+```javascript
+Validator.validate(req.body, schema [,options])
+  .then(() => {
+    // do some logic
+  })
+  .catch(next);
+```
+
+其中 `options` 的默认值为： `{ allowUnknown: true, abortEarly: false }`，可自行指定参数，参考：[Joi Api Docs](https://github.com/hapijs/joi/blob/v10.2.2/API.md)
+
 # How to use MSSQL?
 
 ```javascript
